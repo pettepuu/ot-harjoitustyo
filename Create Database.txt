@@ -1,0 +1,97 @@
+DROP DATABASE if EXISTS BudgetDatabase;
+CREATE DATABASE BudgetDatabase;
+USE BudgetDatabase;
+
+CREATE TABLE User
+(
+  UserID VARCHAR(40) NOT NULL,
+  Username VARCHAR(30) UNIQUE NOT NULL,
+  UserPassword VARCHAR(100) NOT NULL,
+  Email VARCHAR(60) UNIQUE NOT NULL,
+  IsActive INT NOT NULL DEFAULT 1,
+  PRIMARY KEY (UserID)
+);
+
+CREATE TABLE Category
+(
+  CategoryID INT NOT NULL AUTO_INCREMENT,
+  CategoryName VARCHAR(30) NOT NULL,
+  IsActive INT NOT NULL DEFAULT 1,
+  UserID VARCHAR(70) NOT NULL,
+  PRIMARY KEY (CategoryID),
+  FOREIGN KEY (UserID) REFERENCES User(UserID)
+);
+
+CREATE TABLE Budget
+(
+  BudgetID INT AUTO_INCREMENT,
+  Amount DECIMAL(11,2) NOT NULL,
+  FromCategory VARCHAR(30) NOT NULL,
+  ToCategory VARCHAR(30) NOT NULL,
+  BudgetDate DATE NOT NULL,
+  PRIMARY KEY (BudgetID)
+);
+
+CREATE TABLE Account
+(
+  AccountID INT NOT NULL AUTO_INCREMENT,
+  AccountName VARCHAR(30) NOT NULL,
+  Balance DECIMAL(11,2) NOT NULL,
+  AccountType VARCHAR(30) NOT NULL,
+  BalanceDate DATE NOT NULL,
+  IsActive INT NOT NULL DEFAULT 1,
+  UserID VARCHAR(70) NOT NULL,
+  PRIMARY KEY (AccountID),
+  FOREIGN KEY (UserID) REFERENCES User(UserID)
+);
+
+CREATE TABLE SubCategory
+(
+  SubCategoryID INT NOT NULL AUTO_INCREMENT,
+  SubCategoryName VARCHAR(30) NOT NULL,
+  Balance DECIMAL(11,2) NOT NULL,
+  IsActive INT NOT NULL DEFAULT 1,
+  UserID VARCHAR(70) NOT NULL,
+  CategoryID INT NOT NULL,
+  PRIMARY KEY (SubCategoryID),
+  FOREIGN KEY (UserID) REFERENCES User(UserID),
+  FOREIGN KEY (CategoryID) REFERENCES Category(CategoryID)
+);
+
+CREATE TABLE mergebsc
+(
+  BudgetID INT NOT NULL,
+  FromSubCategoryID INT NOT NULL,
+  ToSubCategoryID INT NOT NULL,
+  PRIMARY KEY (BudgetID),
+  FOREIGN KEY (BudgetID) REFERENCES Budget(BudgetID)
+);
+
+CREATE TABLE Goal
+(
+	GoalID INT NOT NULL AUTO_INCREMENT,
+    Amount DECIMAL(11,2) NOT NULL,
+	GoalDate DATE NOT NULL,
+    GoalType VARCHAR(1) NOT NULL,
+	SubCategoryID INT NOT NULL,
+    PRIMARY KEY (GoalID),
+    FOREIGN KEY (SubCategoryID) REFERENCES SubCategory(SubCategoryID)
+);
+
+
+CREATE TABLE Transaction
+(
+  TransactionID INT NOT NULL AUTO_INCREMENT,
+  Recipient VARCHAR(30) NOT NULL,
+  TransactionName VARCHAR(30) NOT NULL,
+  Inflow DECIMAL(11,2),
+  Outflow DECIMAL(11,2),
+  TransactionDate DATE NOT NULL,
+  TransactionRepeat VARCHAR(30),
+  Memo VARCHAR(300),
+  AccountID INT NOT NULL,
+  SubCategoryID INT NOT NULL,
+  PRIMARY KEY (TransactionID),
+  FOREIGN KEY (AccountID) REFERENCES Account(AccountID),
+  FOREIGN KEY (SubCategoryID) REFERENCES SubCategory(SubCategoryID)
+);

@@ -1,0 +1,538 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+body {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    color: white;
+    min-width: 700px !important;
+}
+
+/* Style the header */
+.header {
+    height: 80px;
+    background-color: #15171c;
+    padding: 1rem;
+    text-align: center;
+    font-size: 25px;
+}
+
+
+/* Container for flexboxes */
+.row {
+    display: -webkit-flex;
+    display: flex;
+}
+
+/* Create three unequal columns that sits next to each other */
+.column {
+    padding: 10px;
+    height: 100vh;
+}
+
+/* Left  */
+.column.left {
+    -webkit-flex: 0 1;
+    -ms-flex: 0 1;
+    flex: 0 1 auto;
+    /* This is the shorthand for flex-grow, flex-shrink and
+    flex-basis combined. The second and third parameters
+    (flex-shrink and flex-basis) are optional. The default is 0 1 auto */
+    background-color: #15171c;
+    padding: 10px 10px 10px 0 !important;
+    width: 260px;
+    overflow: auto !important;
+    display: flex;
+    justify-content: center;
+}
+
+/*
+Sidebar icons centering
+ */
+a.css-19qeahj:nth-child(even) > div:nth-child(1),
+a.css-19qeahj:nth-child(odd) > div:nth-child(1),
+#root > div.row > div.column.left > nav > a:nth-child(even) > div:nth-child(1),
+#root > div.row > div.column.left > nav > a:nth-child(odd) > div:nth-child(1) {
+    display: flex;
+}
+
+/*
+Account balances
+ */
+.css-1x600hi {
+    display: flex;
+    font-size: 12px !important;
+}
+
+.column.left.hidden {
+    display: none;
+}
+
+/* Middle column */
+.column.middle {
+    -webkit-flex: 1 1;
+    -ms-flex: 1 1;
+    flex: 1 1;
+    padding: 0;
+    background-color: #3a3434;
+}
+
+.column.middle.hidden {
+    display: none;
+}
+
+
+
+/* To be done...
+.column.right {
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+*/
+
+
+/* Style the footer */
+.footer {
+    background-color: #f1f1f1;
+    padding: 10px;
+    text-align: center;
+}
+
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other
+@media (max-width: 600px) {
+  .row {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+}*/
+
+.home,
+.category {
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    justify-content: start;
+    font-size: 2rem;
+    align-items: start;
+}
+
+.secondary-button {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+    /* padding-left: 1.5rem; */
+    display: block;
+}
+
+.primary-button{
+    margin-left: auto !important;
+    margin-right: 0 !important;
+    padding-right: 1.5rem;
+    display: block;
+    color: #f3f3f3 !important;
+    text-align: center;
+}
+
+.login-select{
+    margin-left: auto !important;
+    margin-right: 0 !important;
+    padding-right: 1.2rem;
+    display: block;
+    text-decoration-line: none;
+    text-align: center;
+    /*padding-left: 1.2rem!important;
+    border-radius: 15px;
+    border: 1px solid #ffffff;*/
+}
+
+
+.login-select:hover {
+    color: #ffffff !important;
+    text-decoration-line: none;
+    text-align: center;
+    /*padding-left: 1.2rem!important;
+    border-radius: 15px;
+    border: 1px solid #d380ff; */
+}
+
+
+.MuiCollapse-root,
+.MuiDataGrid-root {
+    display: flex;
+}
+
+.MuiTableCell-root {
+    /*background-color: #3a3434;
+    border-color: #3a3434 !important;*/
+    padding: 0 0.7rem 0 0.5rem !important;
+    color: #000000 !important;
+    border-bottom: none !important;
+}
+
+.budgetingRow {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    font-weight: 500 !important;
+    font-size: 13px !important;
+    line-height: 1.75 !important;
+    letter-spacing: 0.02857em !important;
+    text-transform: uppercase !important;
+    min-height: 39.75px !important;
+    padding: 4px 4px 0 4px;
+}
+
+.categoryRow {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.categoryBalance {
+    font-size: medium;
+    color: seagreen;
+}
+
+.categoryName {
+    font-size: medium;
+    color: #15171c;
+}
+
+.login-select {
+    text-align-last: center;
+    padding: 0 0 0 0;
+}
+
+.bank-button {
+    justify-content: center;
+    display: flex;
+}
+
+#bank-button-1 {
+    padding: 6px 78px 10px 1px;
+    text-transform: none;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 0;
+    color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div > #bank-button-1 {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+
+.login-button {
+    /* margin-left: auto !important;*/
+    margin-right: 0 !important;
+    display: block;
+}
+
+.cancel-button {
+    /* margin-left: auto !important;*/
+    margin-right: 0 !important;
+    display: block;
+}
+
+.custom-alert {
+    left: 85%;
+    transform: translate(-60%, -60%);
+    position: fixed;
+    top: 7rem;
+    width: 25%;
+}
+
+.sideBarAccountDetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.sideBarAccountName{
+    display: flex;
+    align-content: flex-start;
+}
+.sideBarAccountBalance{
+    display: flex;
+    padding-top: 0;
+    padding-right: 5px;
+    text-align: end;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.delete-button {
+    /* margin-left: auto !important;*/
+    margin-right: 0 !important;
+    display: block;
+}
+
+.TransactionGrid,
+.AccountGrid {
+    flex: 1 1 auto;
+    height: auto;
+}
+
+.transaction,
+.account {
+    padding: 0;
+    display: grid;
+}
+
+.transaction-selects {
+    display: flex;
+    flex: 1;
+}
+
+.transaction-account {
+    flex: 1;
+}
+
+.transaction-category {
+    flex: 0;
+}
+
+.AddTransaction {
+    line-height: 22.75px;
+    font-size: 13px !important;
+    padding: 4px 5px 4px 5px;
+}
+
+.rdg-header-row {
+    text-align: center;
+}
+
+/*Mui buttoneitten tyylit*/
+.MuiButton-root {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.75;
+    letter-spacing: 0.02857em;
+    text-transform: uppercase;
+    min-width: 64px;
+    padding: 5px 15px;
+    border-radius: 4px;
+    color: #ee0000;
+}
+
+.MuiBox-root {
+    display: flex;
+    align-content: center;
+}
+
+/*Logged in user button style (tai mui select root*/
+.MuiSelect-select {
+    justify-content: center;
+    position: relative;
+    box-sizing: border-box;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.75;
+    letter-spacing: 0.02857em;
+    text-transform: uppercase;
+    min-width: 64px;
+    border-radius: 4px;
+    color: #d21919;
+    height: 14px !important;
+    padding: 5px 15px;
+    margin-bottom: 1rem;
+}
+
+.css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root {
+    max-width: 150px !important;
+    height: 40px;
+}
+
+.MuiOutlinedInput-input {
+    color: #fff;
+    border: 10px !important;
+    border-radius: 4px !important;
+}
+
+.MuiOutlinedInput-notchedOutline Header.js,
+.MuiButton-outlined{
+    border-width: 1px !important;
+    border-radius: 12px !important;
+    border-color: #ffffff;
+}
+css-1d3z3hw-MuiOutlinedInput-notchedOutline{
+    border-color: #ffffff !important;
+}
+.Mui-focused .MuiOutlinedInput-notchedOutline:hover {
+    border-color: #d380ff !important;
+    border-width: 1px !important;
+}
+
+
+.MuiSelect-icon {
+    display: none;
+}
+
+.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
+    padding: 10px !important;
+}
+
+.BudgetHeaderCell,
+.BudgetCatHeaderCell,
+.BudgetSubCategoryHeaderCell {
+    background-color: #3a3434;
+    color: #ffffff !important;
+    padding-right: 15px !important;
+    width: 100px;
+    max-width: 150px;
+    min-width: 90px;
+}
+.BudgetCatHeaderCellAcitivity {
+    background-color: #3a3434;
+    color: #ffffff !important;
+    padding-right: 10px !important;
+    width: 100px;
+    max-width: 150px;
+    min-width: 90px;
+}
+
+
+
+.BudgetSubCategoryCell,
+.BudgetSubCategoryCellActivity{
+    background-color: #3a3434;
+    color: #ffffff;
+    width: 100px;
+    max-width: 100px;
+
+}
+
+#root > div.row > div.column.middle > div >div.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation1.MuiTableContainer-root.css-11xur9t-MuiPaper-root-MuiTableContainer-root > table > tbody > tr:nth-child(4) > td > div > div > div > div > table > tbody > tr:nth-child(2) > td.MuiTableCell-root.MuiTableCell-body.MuiTableCell-alignLeft.MuiTableCell-sizeSmall.BudgetSubCategoryCell.css-cbyouk-MuiTableCell-root{
+    padding-left: 0.65em !important;
+}
+
+.BudgetSubCategoryCell span {
+    font-size: 14px !important;
+    border-radius: 0.5em;
+    color: white;
+    padding-right: 0.25em;
+    padding-left: 0.25em;
+    margin-right: -0.5em;
+}
+
+.budgetStyleWrapper {
+    display: flex;
+    float: right;
+    align-items: center;
+    justify-content: center;
+    font-size: 6px !important;
+}
+.BudgetHeaderCell,
+.BudgetHeaderCell2,
+.BudgetCatHeaderCell2 {
+    background-color: #3a3434;
+    color: #ffffff !important;
+    width: 120px;
+    height: 39.5px;
+    max-width: 150px;
+    padding-right: 10px !important;
+}
+
+.BudgetHeaderCell,
+.BudgetCatHeaderCell,
+.BudgetCatHeaderCellAcitivity,
+.BudgetSubCategoryHeaderCell,
+.BudgetSubCategoryCell,
+.BudgetHeaderCell2,
+.BudgetCatHeaderCell2,
+.BudgetSubCategoryCellActivity,
+.column.middle {
+    background-color: white;
+    color: black !important;
+    border-bottom: none;
+}
+.BudgetCatHeaderCellAcitivity{
+
+}
+
+.BudgetHeaderCell,
+.BudgetHeaderCell2{
+    background-color: #cfcfcf;
+    font-weight: bold !important;
+}
+
+.BudgetCatHeaderCell,
+.BudgetCatHeaderCellAcitivity,
+.BudgetCatHeaderCell2{
+    background-color: #f6f6f6;
+    font-weight: bold !important;
+}
+
+.BudgetHeaderCell2,
+.BudgetCatHeaderCell2 {
+    padding-right: 16px !important;
+    /* font-size: 16px !important; */
+}
+.BudgetSubCategoryCell2{
+    font-size: 13px !important;
+}
+
+.MuiTableHead-root{
+    background-color: #f6f6f6 !important;
+}
+
+.BudgetSubCategoryCellActivity{
+    padding-right: 0.23rem !important;
+}
+
+/* Datagrid header row */
+#root > div.row > div.column.middle > div > div > div > div.MuiDataGrid-main.css-204u17-MuiDataGrid-main > div.MuiDataGrid-columnHeaders.css-z8fhq1-MuiDataGrid-columnHeaders {
+    background-color: #cfcfcf !important;
+}
+
+.goalIconClass{
+    /*padding-top: 4px;*/
+    margin-top: 4px;
+}
+
+.monthYearPicker,
+.monthYearPicker:active,
+.monthYearPicker:focus{
+    text-decoration-color: white !important;
+    border-color: white;
+    width: 7.3em;
+    margin-top: 0 !important;
+    margin-left: 0 !important;
+    top: -0px
+}
+#MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedEnd css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root {
+    color: white !important;
+}
+.monthYearPicker label,
+.monthYearPicker label{
+    color: white;
+    border-color: white;
+    font-size: 16px;
+}
+.dateSelector{
+    margin-left: 3em !important;
+    color: white!important;
+}
+
+.css-1e86fgl-MuiFormControl-root-MuiTextField-root input {
+    color: #fff !important;
+}
+
+/* Datagrid footer with pages and how many to show */
+.css-17jjc08-MuiDataGrid-footerContainer{
+    justify-content: center !important;
+}
